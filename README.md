@@ -4,7 +4,7 @@
 
 ## Integrantes del equipo
 
-[Nombres, apellidos, y usuario GitHub de los integrantes del equipo.]
+Aaron NIeto Iglesias, Alfredo Secades Oliva, Martin Nieto Bermejo
 
 ## Objetivos del trabajo
 
