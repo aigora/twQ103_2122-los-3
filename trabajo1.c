@@ -4,19 +4,19 @@
 #include <stdlib.h>
 
 
-void banner();
-int resp;
-int respuesta, i=1;
-char jugador[50], instrucciones, top;
+
 
 int main(){
 banner();
-printf("Bienvendio a Butrul run ¿que desea hacer?\n");
+int resp;
+int respuesta, i=1, j=1, code;
+char jugador[50], instrucciones, top;
+printf("Bienvendio a Butrul run Â¿que desea hacer?\n");
 printf("1 Modo Historia\n2.Como jugar\n3.Top jugadores\n");
 scanf("%d",&resp);
     if(resp==1){
     	printf("has accedido al modo historia\n");
-    	printf("Hola heroe!! Bienvenido a Butrul Run ¿Como te llamas?\n");
+    	printf("Hola heroe!! Bienvenido a Butrul Run Â¿Como te llamas?\n");
 	        scanf("%s", jugador);
 	        printf("%s, te encuentras en el escondite del BUTRUL y debes de investigar el lugar para encontrar las pistas oportunas para avanzar en la mision.\n", jugador);
          	printf("Se encuentran a la vista varios objetos para comprobar:\n");
@@ -25,6 +25,25 @@ scanf("%d",&resp);
         		scanf("%d", &respuesta);
 		        if (respuesta == 1){
 		        	printf("En la libreta encuentras unas anotaciones. Parece una informacion clasificada.Hay una especie de rompecabezas.Quiza sea la solucion\n");
+		        	printf("Coges el papel y parece que hay unnos simbolos raros\n");
+					printf("@ + @ + @ = 30\n");
+					printf("@ + $ + 2$ = 25\n");
+					printf("$ + & + & = 9\n");
+					printf("code:$@&$@\n");
+					//el codigo es 5102510
+					while(j==1){
+						printf("introduzca la clave para leer la informacion clasificada\n");
+						scanf("%d", &code);
+						printf("has introducido %d\t",code);
+						if(code == 5102510){
+					    	printf("codigo correcto, ahora puedes leer lo que pone en la libreta.\n");
+					 		j=0;
+						}else{
+ 							printf("codigo erroneo\n");
+ 							j=1;
+ 						}
+ 					}
+
 			        i=0;
 		        }else if(respuesta == 2){
          			printf("En el escritorio hay algunos mapas de la ciudad... pero nada digno de interes\n");
