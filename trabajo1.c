@@ -12,7 +12,7 @@ int resp;
 int respuesta, i=1, j=1, code;
 char jugador[50], instrucciones, top;
 printf("Bienvendio a Butrul run ¿que desea hacer?\n");
-printf("1 Modo Historia\n2.Como jugar\n3.Top jugadores\n");
+printf("1 Modo Historia\n2.Como jugar\n3.Top jugadores\n4.Salir\n");
 scanf("%d",&resp);
     if(resp==1){
     	printf("has accedido al modo historia\n");
@@ -86,7 +86,9 @@ scanf("%d",&resp);
 			}
 		}
 		
-	}
+	}if(resp==4){
+	    printf("vuelva pronto!\n");
+		}
 
 	return 0;
 }
