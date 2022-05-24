@@ -1,6 +1,6 @@
 INTRUCCIONES
 
-Bienvenidos al juego de Butrul Run. Este juego consiste en escapar de un monstruo llamado Butru.
+Bienvenidos al juego de Butrul Run. Este juego consiste en escapar de un monstruo llamado Butrul.
 Durante el juego irás aprendiendo cosas sobre Butrul, sus ataques y sus puntos débiles.
 Para llegar hasta Butrul tendràs que encontar una serie de pista y resolver unos acertijos. Solamente hay que pensar y seleccionar las teclas correctas que te pidan en cada momento.El jugador que menos veces muera, y mayor vida tenga al acabar el juego ganara.
 MUCHA SUERTE!! LA NECESITAREIS
