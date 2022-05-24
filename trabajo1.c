@@ -21,22 +21,9 @@ printf(".\n.\n");
 
 int main(){
 banner();
-int respuesta, i=1, j=1, code, resp, luzverde=0, bomba=4, cable,ganar=1, luzroja=0, muerte=0, inicio;
-char jugador[50], instrucciones, top;
-char nombre[15];
-int vida_jug = 200;
-int patada=60, punetazo = 40, pedrada= 80, cura;
-int eleccion = 4, eleccion2=4;
-int dano_recibido;
-int wurtz = 45, cannizaro_oscuro = 70, claisen = 30, ozonolisis = 55;
-int vida_rival = 200, ataque;
-int turno = 1;
-	
-	
+int respuesta, i=1, j=1, code, resp, luzverde=0, bomba=4, cable,ganar=1, luzroja=0, muerte=0, inicio, ebom, talk;
+char jugador[50], instrucciones, top, l[]="Libreta", c[]="Clorobenceno", r[]="Rayos UV";
 
-int dano_hecho;
-int i;
-int acabado = 0;	
 
 
 
@@ -57,7 +44,19 @@ scanf("%d",&resp);
         		scanf("%d", &respuesta);
         		system("cls");
 		        if (respuesta == 1){
-		        	printf("En la libreta encuentras unas anotaciones. Parece una informacion clasificada. Hay una especie de rompecabezas. Quiza sea la solucion\n");
+		     		FILE * fmochila;
+					fmochila = fopen("instrucciones.txt", "r");
+					if(fmochila == NULL){
+	    				printf("Error en la apertura del fichero\n");
+						return 0;
+					}else{
+						fmochila = fopen("mochila.txt", "w");
+						fputs(l, fmochila);
+						fclose(fmochila);
+					}
+					printf("Enhorabuena, ahora tienes la libreta guardada en tu mochila\n");
+		        	sleep(1);
+					printf("En la libreta encuentras unas anotaciones. Parece una informacion clasificada. Hay una especie de rompecabezas. Quiza sea la solucion\n");
 		        	printf("Coges el papel y parece que hay unos simbolos raros\n");
 					printf("@ + @ + @ = 30\n");
 					printf("@ + $ + 2$ = 25\n");
@@ -105,7 +104,6 @@ scanf("%d",&resp);
 			printf("%s, esta sonando un pitido intermitente desde el fondo de la habitacion,  deberias acercarte a mirar.\n.\n.\n.\n", jugador);
 			printf("Acercandose...\n");
 			sleep(2);
-			system("cls");
 			printf("PORRAS, HAS ACTIVADO UN SISTEMA DE DEFENSA DEL BUTRUL!!!\n");
 			
 			printf("Has llegado a una puerta que tiene un artefacto extraño\nParecen 7 cables, hay que cortar los correctos.....\nNo parece que haya ningun acertijo\nHay 3 luces\n");
@@ -131,91 +129,48 @@ scanf("%d",&resp);
                     	printf("Has muerto........Volviendo al punto de partida\n\n\nhas llegado a una puerta que tiene un artefacto extraño\nParecen 7 cables, hay que cortar los correctos.....\nNo parece que haya ningun acertijo\nHay 3 luces\n");
                         bomba=0;
                         muerte=0;
+                        luzverde=0;
             		}else {
-                		printf("Enhorabuena! La puerta esta abierta");
+                		printf("Enhorabuena! La bomba esta desactivada\n");
                 		muerte=1;
 
                     }
-		   
-	printf("Has llegado al final campeon, llega el momento que decidira tu futuro y el del resto de la poblacion\n\n ");
-	printf("Recuerdame tu nombre anda, que quedara grabado en la historia: ");
-	scanf("%s", &nombre);
-	
-
-	while (acabado != 1){
-		
-		//Contador turnos
-		printf("\n----------------------------------------\nTurno %d\n\n", turno);
-		turno++;
-		
-	
-		//Turno estudiante
-		printf("Elige una accion:\n Patada<1> , Punetazo<2>, Pedrada<3>, Cura<4>\n");
-		scanf("%d", &eleccion);
-		if (eleccion == 1){
-			dano_hecho= patada;
-			printf("Le has quitado %d puntos de vida\n", dano_hecho);
-			}
-		else if (eleccion == 2){
-			dano_hecho = punetazo; 
-			printf("Le has quitado %d puntos de vida\n", dano_hecho);
-			}
-		else if (eleccion == 3){
-			dano_hecho= pedrada;
-			printf("Le has quitado %d puntos de vida\n", dano_hecho);
-		}
-		else if (eleccion == 4){
-			vida_jug += 40;
-			printf("Te has curado 40 puntos, tu vida pasa a ser %d\n", vida_jug);
-			dano_hecho = 0;
-		}
-		else{
-			printf("No te sabes este ataque, has perdido el turno por empanado.");
-		}
-		vida_rival -= dano_hecho;
-		printf("Butrul tiene %d puntos de vida\n", vida_rival);
-		//Turno rival
-		
-		printf("\n¿Que hara ahora Butrul?\n\n");
-		srand() % 4+1;
-		if(eleccion2 == 1){
-			dano_hecho = wurtz;
-		printf("Butrul uso sintesis de wurtz!\n");
-		}
-		else if(eleccion2 == 2){
-			dano_hecho = cannizaro_oscuro;
-		printf("Butrul uso cannizaro oscuro!\n");
-		}
-		
-		else if(eleccion2 == 3){
-		dano_hecho = claisen;
-		printf("Butrul uso condensacion de claisen!\n");	
-		}
-	
-		else if(eleccion2 == 4){
-			dano_hecho= ozonolisis;
-		printf("Butrul uso ozonolisis!\n");
-		}
-		
-		
-		vida_jug -= dano_hecho;
-		
-		printf("\n\n\nEl rival te ha hecho %d puntos de dano, tienes %d puntos de vida\n\n\n\n\n\n\n\n\n\n\n", dano_hecho, vida_jug);
-		//cls aqui
-		
-		if(vida_jug <= 0)
-		acabado = 1;
-		else if(vida_rival <= 0)
-		acabado = 1;
-		
-		}
-	if (vida_rival && vida_jug <= 0)
-		printf("Doble KO");
-	else if(vida_rival <= 0)
-		printf("¡Felicidades! has derrotado a Butrul");
-	else if (vida_jug <= 0)
-		printf("Has sido vencido por Butrul, arderas en el infierno");
             }
+            printf("Despues de desactivar la bomba, examinas el artefacto? (1 Si, 2 No)\n");
+            scanf("%d", &ebom);
+            while (ebom==2){
+            	printf("Puede haber cosas interesantes en la bomba\n\Escoge otra vez\n");
+            	scanf("%d", &ebom);
+			}
+            system("cls");
+			printf("Que curioso!!! Era una bomba de clorobenceno. Me lo quedo\nEnhorabuena, has encontrado clorobenceno y lo has guardado en la mochila\n");
+			FILE * fmochila;
+			fmochila = fopen("instrucciones.txt", "r");
+			if(fmochila == NULL){
+	    		printf("Error en la apertura del fichero\n");
+				return 0;
+			}else{
+				fmochila = fopen("mochila.txt", "w");
+				fputs(c, fmochila);
+				fclose(fmochila);
+			}
+			sleep(2);
+			
+			printf("Al salir del escondite del BUTRUL te encuentras a un amigo de la universidad. El doctor Claissen. Quieres hablar con el? (1 si, 2 no)\n");
+			scanf("%d", &talk);
+			while(talk==2){
+				printf("Estas seguro? Hace mucho que no le ves...\n");
+				scanf("%d", &talk);
+			}
+			printf("'Hola %s', cuanto tiempo, el doctor Friedel me ha dado una cosa para ti!!!\n", jugador);
+			printf("El doctor Claissen te ha regalado un generador de Rayos UV, lo has metido en la mochila y ya tienes todo lo necesario para derrotar al BUTRUL\n");
+			fmochila = fopen("instrucciones.txt", "r");
+			if(fmochila == NULL){
+	    		printf("Error en la apertura del fichero\n");
+				return 0;
+			}else{
+				fmochila = fopen("mochila.txt", "w");
+				fputs(r, fmochila);			
 	}
     if(resp==2){
     	inicio=0;
@@ -252,4 +207,5 @@ scanf("%d",&resp);
 
 	
 	return 0;
+}
 }
