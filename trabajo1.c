@@ -35,7 +35,6 @@ int turno = 1;
 	
 
 int dano_hecho;
-int i;
 int acabado = 0;	
 
 
@@ -177,7 +176,7 @@ scanf("%d",&resp);
 		//Turno rival
 		
 		printf("\n¿Que hara ahora Butrul?\n\n");
-		srand() % 4+1;
+		srand(time(NULL)) ;
 		if(eleccion2 == 1){
 			dano_hecho = wurtz;
 		printf("Butrul uso sintesis de wurtz!\n");
