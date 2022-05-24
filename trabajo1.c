@@ -21,16 +21,18 @@ printf(".\n.\n");
 
 int main(){
 banner();
-int respuesta, i=1, j=1, code, resp, luzverde=0, bomba=4, cable,ganar=1, luzroja=0, muerte=0;;
+int respuesta, i=1, j=1, code, resp, luzverde=0, bomba=4, cable,ganar=1, luzroja=0, muerte=0, inicio;
 char jugador[50], instrucciones, top;
 
 
 
+while(inicio!=1){
 printf("Bienvendio a Butrul run Â¿que desea hacer?\n");
 printf("1 Modo Historia\n2.Como jugar\n3.Top jugadores\n");
 scanf("%d",&resp);
 
     if(resp==1){
+    	inicio=1;
     	printf("Has accedido al modo historia\n\n\n");
     	printf("Hola heroe!! Bienvenido a Butrul Run\n\nComo te llamas?\n");
 	        scanf("%s", jugador);
@@ -39,6 +41,7 @@ scanf("%d",&resp);
         	while (i==1){
 		        printf("\t 1._ Libreta\n\t 2._ Escritorio\n\t 3._ Armario\nEscoja uno de los 3 elementos\n");
         		scanf("%d", &respuesta);
+        		system("cls");
 		        if (respuesta == 1){
 		        	printf("En la libreta encuentras unas anotaciones. Parece una informacion clasificada. Hay una especie de rompecabezas. Quiza sea la solucion\n");
 		        	printf("Coges el papel y parece que hay unos simbolos raros\n");
@@ -83,10 +86,12 @@ scanf("%d",&resp);
 				scanf("%d", &respuesta);				
 			}
 			sleep(2);
+			system("cls");
 			printf("'...El sujeto se ve debil ante los compuestos clorados, ante la exposicion al clorobenceno se vuelve extremadamente agresivo y, posteriormente, recobrara su estado normal'\n.\n.\n\n");
 			printf("%s, esta sonando un pitido intermitente desde el fondo de la habitacion,  deberias acercarte a mirar.\n.\n.\n.\n", jugador);
 			printf("Acercandose...\n");
 			sleep(2);
+			system("cls");
 			printf("PORRAS, HAS ACTIVADO UN SISTEMA DE DEFENSA DEL BUTRUL!!!\n");
 			
 			printf("Has llegado a una puerta que tiene un artefacto extraño\nParecen 7 cables, hay que cortar los correctos.....\nNo parece que haya ningun acertijo\nHay 3 luces\n");
@@ -120,6 +125,7 @@ scanf("%d",&resp);
             }
 	}
     if(resp==2){
+    	inicio=0;
     	printf("Has accedido a las instrucciones\n");
     	 FILE * fentrada;
 		 fentrada = fopen("instrucciones.txt", "r");
@@ -131,9 +137,11 @@ scanf("%d",&resp);
 				printf("%c", instrucciones);
 			}
 		}
+		printf("\n\n\n");
 		
 	}
 	if(resp==3){
+		inicio=0;
     	printf("Top jugadores\n");
 		 FILE * fentrada;
 		 fentrada = fopen("top.txt", "r");
@@ -145,7 +153,8 @@ scanf("%d",&resp);
 				printf("%c", top);
 			}
 		}
-		
+		printf("\n\n\n");
+	}
 	}
 
 	
