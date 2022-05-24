@@ -87,7 +87,7 @@ scanf("%d",&resp);
 			printf("%s, esta sonando un pitido intermitente desde el fondo de la habitacion,  deberias acercarte a mirar.\n.\n.\n.\n", jugador);
 			printf("Acercandose...\n");
 			sleep(2);
-			printf("PORRAS, HAS ACTIVADO UN SISTEMA DE DEFENSA DEL BUTRUL!!!");
+			printf("PORRAS, HAS ACTIVADO UN SISTEMA DE DEFENSA DEL BUTRUL!!!\n");
 			
 			printf("has llegado a una puerta que tiene un artefacto extraño\nParecen 7 cables, hay que cortar los correctos.....\nNo parece que haya ningun acertijo\nHay 3 luces\n");
 //	cables correctos 3,6 y 7
@@ -107,12 +107,14 @@ scanf("%d",&resp);
 		    	bomba=1;
 	     	}
 	
-        	}if(luzverde!=3){
+        	if(luzverde!=3){
 
-            	printf("Has muerto........Volviendo al punto de partida\n");
-	    	}else {
+            	printf("Has muerto........Volviendo al punto de partida\n\n\nhas llegado a una puerta que tiene un artefacto extraño\nParecen 7 cables, hay que cortar los correctos.....\nNo parece que haya ningun acertijo\nHay 3 luces\n");
+	    	    bomba=0;
+			}else {
 	        	printf("Enhorabuena! La puerta esta abierta");
 		    }
+			}
 	}
     if(resp==2){
     	printf("Has accedido a las instrucciones\n");
