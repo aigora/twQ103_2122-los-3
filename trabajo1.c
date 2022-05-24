@@ -32,11 +32,10 @@ int wurtz = 45, cannizaro_oscuro = 70, claisen = 30, ozonolisis = 55;
 int vida_rival = 200, ataque;
 int turno = 1;
 	
-<<<<<<< HEAD
+
 int dano_hecho;
 int acabado = 0;	
-=======
->>>>>>> 671dde05ec0279ffd5b132bfa3ceaec285d08b82
+
 
 
 
@@ -148,7 +147,7 @@ scanf("%d",&resp);
                 		muerte=1;
 
                     }
-<<<<<<< HEAD
+
 	
             }
             printf("Despues de desactivar la bomba, examinas el artefacto? (1 Si, 2 No)\n");
@@ -232,7 +231,7 @@ scanf("%d",&resp);
 		//Turno rival
 		
 		printf("\n¿Que hara ahora Butrul?\n\n");
-		rand(time(NULL) ;
+		srand(time(NULL));
 		if(eleccion2 == 1){
 			dano_hecho = wurtz;
 		printf("Butrul uso sintesis de wurtz!\n");
@@ -307,4 +306,4 @@ scanf("%d",&resp);
 	
 	return 0;
 }
-}
+
