@@ -3,29 +3,42 @@
 #include<string.h>
 #include <stdlib.h>
 
-
-
+void banner(){
+	                                                                                            
+printf("@@@@@@@   @@@  @@@  @@@@@@@  @@@@@@@   @@@  @@@  @@@          @@@@@@@   @@@  @@@  @@@  @@@\n" );
+printf("@@@@@@@@  @@@  @@@  @@@@@@@  @@@@@@@@  @@@  @@@  @@@          @@@@@@@@  @@@  @@@  @@@@ @@@\n");
+printf("@@!  @@@  @@!  @@@    @@!    @@!  @@@  @@!  @@@  @@!          @@!  @@@  @@!  @@@  @@!@!@@@\n");
+printf("!@   @!@  !@!  @!@    !@!    !@!  @!@  !@!  @!@  !@!          !@!  @!@  !@!  @!@  !@!!@!@!\n" );
+printf("@!@!@!@   @!@  !@!    @!!    @!@!!@!   @!@  !@!  @!!          @!@!!@!   @!@  !@!  @!@ !!@!\n");
+printf("!!!@!!!!  !@!  !!!    !!!    !!@!@!    !@!  !!!  !!!          !!@!@!    !@!  !!!  !@!  !!!\n" );
+printf("!!:  !!!  !!:  !!!    !!:    !!: :!!   !!:  !!!  !!:          !!: :!!   !!:  !!!  !!:  !!!\n" );
+printf(":!:  !:!  :!:  !:!    :!:    :!:  !:!  :!:  !:!   :!:         :!:  !:!  :!:  !:!  :!:  !:!\n");
+printf(":: ::::  ::::: ::     ::    ::   :::  ::::: ::   :: ::::     ::   :::  ::::: ::   ::   ::\n");
+printf(":: : ::    : :  :      :      :   : :   : :  :   : :: : :      :   : :   : :  :   ::    : \n");
+printf("                                                                                         \n"  );
+printf(".\n.\n");                                                                                        
+}
 
 int main(){
 banner();
-int resp;
-int respuesta, i=1, j=1, code;
+int respuesta, i=1, j=1, code, resp;
 char jugador[50], instrucciones, top;
 printf("Bienvendio a Butrul run ¿que desea hacer?\n");
-printf("1 Modo Historia\n2.Como jugar\n3.Top jugadores\n4.Salir\n");
+printf("1 Modo Historia\n2.Como jugar\n3.Top jugadores\n");
 scanf("%d",&resp);
+
     if(resp==1){
-    	printf("has accedido al modo historia\n");
-    	printf("Hola heroe!! Bienvenido a Butrul Run ¿Como te llamas?\n");
+    	printf("Has accedido al modo historia\n\n\n");
+    	printf("Hola heroe!! Bienvenido a Butrul Run\n\nComo te llamas?\n");
 	        scanf("%s", jugador);
-	        printf("%s, te encuentras en el escondite del BUTRUL y debes de investigar el lugar para encontrar las pistas oportunas para avanzar en la mision.\n", jugador);
+	        printf("\n%s, te encuentras en el escondite del BUTRUL y debes de investigar el lugar para encontrar las pistas oportunas para avanzar en la mision.\n", jugador);
          	printf("Se encuentran a la vista varios objetos para comprobar:\n");
         	while (i==1){
 		        printf("\t 1._ Libreta\n\t 2._ Escritorio\n\t 3._ Armario\nEscoja uno de los 3 elementos\n");
         		scanf("%d", &respuesta);
 		        if (respuesta == 1){
-		        	printf("En la libreta encuentras unas anotaciones. Parece una informacion clasificada.Hay una especie de rompecabezas.Quiza sea la solucion\n");
-		        	printf("Coges el papel y parece que hay unnos simbolos raros\n");
+		        	printf("En la libreta encuentras unas anotaciones. Parece una informacion clasificada. Hay una especie de rompecabezas. Quiza sea la solucion\n");
+		        	printf("Coges el papel y parece que hay unos simbolos raros\n");
 					printf("@ + @ + @ = 30\n");
 					printf("@ + $ + 2$ = 25\n");
 					printf("$ + & + & = 9\n");
@@ -54,11 +67,27 @@ scanf("%d",&resp);
         			printf("Elige otra vez\n");
 			        i=1;
 	        	}else{
-			        printf("Esta respuesta no existe, elige otra vez");
+			        printf("Esta respuesta no existe, elige otra vez\n");
 		        	i=1;
 	        	}
-         	}
-	        }
+         	}   
+			printf("Leyendo...\n");
+   			sleep(3);
+			printf("'El sujeto del experimento da buena reaccion a la sintesis de Wurtz, parece que incrementa su fuerza a la par que sus cadenas carbonadas.'\n \tSeguir leyendo los apuntes (1)\n\tCerrar el libro (2)\n");
+			scanf("%d", &respuesta);
+			while(respuesta==2){
+				printf("Creo que quedan muchas cosas que saber en los Nieto`s Secades Notes...\n.\n.\n.\n");
+				scanf("%d", &respuesta);				
+			}
+			sleep(2);
+			printf("'...El sujeto se ve debil ante los compuestos clorados, ante la exposicion al clorobenceno se vuelve extremadamente agresivo y, posteriormente, recobrara su estado normal'\n.\n.\n\n");
+			printf("%s, esta sonando un pitido intermitente desde el fondo de la habitacion,  deberias acercarte a mirar.\n.\n.\n.\n", jugador);
+			printf("Acercandose...\n");
+			sleep(2);
+			printf("PORRAS, HAS ACTIVADO UN SISTEMA DE DEFENSA DEL BUTRUL!!!");
+			
+			//Juego
+	}
     if(resp==2){
     	printf("Has accedido a las instrucciones\n");
     	 FILE * fentrada;
@@ -86,25 +115,8 @@ scanf("%d",&resp);
 			}
 		}
 		
-	}if(resp==4){
-	    printf("vuelva pronto!\n");
-		}
+	}
 
+	
 	return 0;
-}
-
-void banner(){
-	                                                                                            
-printf("@@@@@@@   @@@  @@@  @@@@@@@  @@@@@@@   @@@  @@@  @@@          @@@@@@@   @@@  @@@  @@@  @@@\n" );
-printf("@@@@@@@@  @@@  @@@  @@@@@@@  @@@@@@@@  @@@  @@@  @@@          @@@@@@@@  @@@  @@@  @@@@ @@@\n");
-printf("@@!  @@@  @@!  @@@    @@!    @@!  @@@  @@!  @@@  @@!          @@!  @@@  @@!  @@@  @@!@!@@@\n");
-printf("!@   @!@  !@!  @!@    !@!    !@!  @!@  !@!  @!@  !@!          !@!  @!@  !@!  @!@  !@!!@!@!\n" );
-printf("@!@!@!@   @!@  !@!    @!!    @!@!!@!   @!@  !@!  @!!          @!@!!@!   @!@  !@!  @!@ !!@!\n");
-printf("!!!@!!!!  !@!  !!!    !!!    !!@!@!    !@!  !!!  !!!          !!@!@!    !@!  !!!  !@!  !!!\n" );
-printf("!!:  !!!  !!:  !!!    !!:    !!: :!!   !!:  !!!  !!:          !!: :!!   !!:  !!!  !!:  !!!\n" );
-printf(":!:  !:!  :!:  !:!    :!:    :!:  !:!  :!:  !:!   :!:         :!:  !:!  :!:  !:!  :!:  !:!\n");
-printf(":: ::::  ::::: ::     ::    ::   :::  ::::: ::   :: ::::     ::   :::  ::::: ::   ::   ::\n");
-printf(":: : ::    : :  :      :      :   : :   : :  :   : :: : :      :   : :   : :  :   ::    : \n");
-printf("                                                                                         \n"  );
-printf(".\n.\n");                                                                                        
 }
