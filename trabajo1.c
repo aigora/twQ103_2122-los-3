@@ -23,11 +23,25 @@ int main(){
 banner();
 int respuesta, i=1, j=1, code, resp, luzverde=0, bomba=4, cable,ganar=1, luzroja=0, muerte=0, inicio;
 char jugador[50], instrucciones, top;
+char nombre[15];
+int vida_jug = 200;
+int patada=60, punetazo = 40, pedrada= 80, cura;
+int eleccion = 4, eleccion2=4;
+int dano_recibido;
+int wurtz = 45, cannizaro_oscuro = 70, claisen = 30, ozonolisis = 55;
+int vida_rival = 200, ataque;
+int turno = 1;
+	
+	
+
+int dano_hecho;
+int i;
+int acabado = 0;	
 
 
 
 while(inicio!=1){
-printf("Bienvendio a Butrul run ¿que desea hacer?\n");
+printf("Bienvendio a Butrul run Â¿que desea hacer?\n");
 printf("1 Modo Historia\n2.Como jugar\n3.Top jugadores\n");
 scanf("%d",&resp);
 
@@ -94,7 +108,7 @@ scanf("%d",&resp);
 			system("cls");
 			printf("PORRAS, HAS ACTIVADO UN SISTEMA DE DEFENSA DEL BUTRUL!!!\n");
 			
-			printf("Has llegado a una puerta que tiene un artefacto extra�o\nParecen 7 cables, hay que cortar los correctos.....\nNo parece que haya ningun acertijo\nHay 3 luces\n");
+			printf("Has llegado a una puerta que tiene un artefacto extraño\nParecen 7 cables, hay que cortar los correctos.....\nNo parece que haya ningun acertijo\nHay 3 luces\n");
 //	cables correctos 3,6 y 7
            while(muerte!=1){
             	while(bomba!=1){
@@ -114,7 +128,7 @@ scanf("%d",&resp);
 	
 	               }if(luzverde!=3){
 
-                    	printf("Has muerto........Volviendo al punto de partida\n\n\nhas llegado a una puerta que tiene un artefacto extra�o\nParecen 7 cables, hay que cortar los correctos.....\nNo parece que haya ningun acertijo\nHay 3 luces\n");
+                    	printf("Has muerto........Volviendo al punto de partida\n\n\nhas llegado a una puerta que tiene un artefacto extraño\nParecen 7 cables, hay que cortar los correctos.....\nNo parece que haya ningun acertijo\nHay 3 luces\n");
                         bomba=0;
                         muerte=0;
             		}else {
@@ -122,6 +136,85 @@ scanf("%d",&resp);
                 		muerte=1;
 
                     }
+		   
+	printf("Has llegado al final campeon, llega el momento que decidira tu futuro y el del resto de la poblacion\n\n ");
+	printf("Recuerdame tu nombre anda, que quedara grabado en la historia: ");
+	scanf("%s", &nombre);
+	
+
+	while (acabado != 1){
+		
+		//Contador turnos
+		printf("\n----------------------------------------\nTurno %d\n\n", turno);
+		turno++;
+		
+	
+		//Turno estudiante
+		printf("Elige una accion:\n Patada<1> , Punetazo<2>, Pedrada<3>, Cura<4>\n");
+		scanf("%d", &eleccion);
+		if (eleccion == 1){
+			dano_hecho= patada;
+			printf("Le has quitado %d puntos de vida\n", dano_hecho);
+			}
+		else if (eleccion == 2){
+			dano_hecho = punetazo; 
+			printf("Le has quitado %d puntos de vida\n", dano_hecho);
+			}
+		else if (eleccion == 3){
+			dano_hecho= pedrada;
+			printf("Le has quitado %d puntos de vida\n", dano_hecho);
+		}
+		else if (eleccion == 4){
+			vida_jug += 40;
+			printf("Te has curado 40 puntos, tu vida pasa a ser %d\n", vida_jug);
+			dano_hecho = 0;
+		}
+		else{
+			printf("No te sabes este ataque, has perdido el turno por empanado.");
+		}
+		vida_rival -= dano_hecho;
+		printf("Butrul tiene %d puntos de vida\n", vida_rival);
+		//Turno rival
+		
+		printf("\n¿Que hara ahora Butrul?\n\n");
+		srand() % 4+1;
+		if(eleccion2 == 1){
+			dano_hecho = wurtz;
+		printf("Butrul uso sintesis de wurtz!\n");
+		}
+		else if(eleccion2 == 2){
+			dano_hecho = cannizaro_oscuro;
+		printf("Butrul uso cannizaro oscuro!\n");
+		}
+		
+		else if(eleccion2 == 3){
+		dano_hecho = claisen;
+		printf("Butrul uso condensacion de claisen!\n");	
+		}
+	
+		else if(eleccion2 == 4){
+			dano_hecho= ozonolisis;
+		printf("Butrul uso ozonolisis!\n");
+		}
+		
+		
+		vida_jug -= dano_hecho;
+		
+		printf("\n\n\nEl rival te ha hecho %d puntos de dano, tienes %d puntos de vida\n\n\n\n\n\n\n\n\n\n\n", dano_hecho, vida_jug);
+		//cls aqui
+		
+		if(vida_jug <= 0)
+		acabado = 1;
+		else if(vida_rival <= 0)
+		acabado = 1;
+		
+		}
+	if (vida_rival && vida_jug <= 0)
+		printf("Doble KO");
+	else if(vida_rival <= 0)
+		printf("¡Felicidades! has derrotado a Butrul");
+	else if (vida_jug <= 0)
+		printf("Has sido vencido por Butrul, arderas en el infierno");
             }
 	}
     if(resp==2){
