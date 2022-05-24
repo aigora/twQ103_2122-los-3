@@ -21,8 +21,11 @@ printf(".\n.\n");
 
 int main(){
 banner();
-int respuesta, i=1, j=1, code, resp;
+int respuesta, i=1, j=1, code, resp, luzverde=0, bomba=4, cable,ganar=1, luzroja=0;
 char jugador[50], instrucciones, top;
+
+
+
 printf("Bienvendio a Butrul run Â¿que desea hacer?\n");
 printf("1 Modo Historia\n2.Como jugar\n3.Top jugadores\n");
 scanf("%d",&resp);
@@ -86,7 +89,30 @@ scanf("%d",&resp);
 			sleep(2);
 			printf("PORRAS, HAS ACTIVADO UN SISTEMA DE DEFENSA DEL BUTRUL!!!");
 			
-			//Juego
+			printf("has llegado a una puerta que tiene un artefacto extraño\nParecen 7 cables, hay que cortar los correctos.....\nNo parece que haya ningun acertijo\nHay 3 luces\n");
+//	cables correctos 3,6 y 7
+
+        	while(bomba!=1){
+		    printf("que cable cortas\n");
+		    scanf("%d", &cable);
+	    	if(cable==1||cable==2||cable==4||cable==5){
+		    	printf("se ha encendido una luz roja, Parece que ese cable era incorrecto.....Aun quedan %d intentos\n",2-luzroja);
+			    bomba=bomba-1;
+			    luzroja++;
+		    }else if(cable==3||cable==6||cable==7){
+	        	printf("se ha encendido una luz verde.");
+        		luzverde=luzverde+1;
+        		printf("numero de luces verdes=%d\n quedan %d luces verdes\n",luzverde , 3-luzverde);	}
+	    	if(luzverde==3){
+		    	bomba=1;
+	     	}
+	
+        	}if(luzverde!=3){
+
+            	printf("Has muerto........Volviendo al punto de partida\n");
+	    	}else {
+	        	printf("Enhorabuena! La puerta esta abierta");
+		    }
 	}
     if(resp==2){
     	printf("Has accedido a las instrucciones\n");
