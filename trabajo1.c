@@ -25,7 +25,7 @@ int respuesta, i=1, j=1, code, resp, luzverde=0, bomba=4, cable,ganar=1, luzroja
 char jugador[50], instrucciones, top, l[]="Libreta", c[]="Clorobenceno", r[]="Rayos UV";
 char nombre[15];
 int vida_jug = 200;
-int patada=60, punetazo = 40, pedrada= 80, cura;
+int bomba_clorobenceno=60, pedrada = 40, rayosUV= 80, cura;
 int eleccion = 4, eleccion2=4;
 int dano_recibido;
 int wurtz = 45, cannizaro_oscuro = 70, claisen = 30, ozonolisis = 55;
@@ -204,19 +204,19 @@ scanf("%d",&resp);
 		
 	
 		//Turno estudiante
-		printf("Elige una accion:\n Patada<1> , Punetazo<2>, Pedrada<3>, Cura<4>\n");
+		printf("Elige una accion:\n Pedrada<1> , Bomba de clorobenceno<2>, Rayos UV<3>, Cura<4>\n");
 		scanf("%d", &eleccion);
 		if (eleccion == 1){
-			dano_hecho= patada;
-			printf("Le has quitado %d puntos de vida\n", dano_hecho);
+			dano_hecho= pedrada;
+			printf("Has utilizado pedrada! Le has quitado %d puntos de vida\n", dano_hecho);
 			}
 		else if (eleccion == 2){
-			dano_hecho = punetazo; 
-			printf("Le has quitado %d puntos de vida\n", dano_hecho);
+			dano_hecho = bomba_clorobenceno; 
+			printf("Has utilizado Bomba de Clorobenceno! Le has quitado %d puntos de vida\n", dano_hecho);
 			}
 		else if (eleccion == 3){
-			dano_hecho= pedrada;
-			printf("Le has quitado %d puntos de vida\n", dano_hecho);
+			dano_hecho= rayosUV;
+			printf("Has utilizado rayos UV! Le has quitado %d puntos de vida\n", dano_hecho);
 		}
 		else if (eleccion == 4){
 			vida_jug += 40;
