@@ -23,7 +23,6 @@ int main(){
 banner();
 int respuesta, i=1, j=1, code, resp, luzverde=0, bomba=4, cable,ganar=1, luzroja=0, muerte=0, inicio, ebom, talk;
 char jugador[50], instrucciones, top, l[]="Libreta", c[]="Clorobenceno", r[]="Rayos UV";
-char nombre[15];
 int vida_jug = 200;
 int bomba_clorobenceno=60, pedrada = 40, rayosUV= 80, cura;
 int eleccion = 4, eleccion2=4;
@@ -63,7 +62,7 @@ scanf("%d",&resp);
 						return 0;
 					}else{
 						fmochila = fopen("mochila.txt", "w");
-						fputs(l, fmochila);
+						fprintf(fmochila, "%s\n",l);
 						fclose(fmochila);
 					}
 					printf("Enhorabuena, ahora tienes la libreta guardada en tu mochila\n");
@@ -165,7 +164,7 @@ scanf("%d",&resp);
 				return 0;
 			}else{
 				fmochila = fopen("mochila.txt", "w");
-				fputs(c, fmochila);
+				fprintf(fmochila, "%s\n", c);
 				fclose(fmochila);
 			}
 			sleep(2);
@@ -184,7 +183,7 @@ scanf("%d",&resp);
 				return 0;
 			}else{
 				fmochila = fopen("mochila.txt", "w");
-				fputs(r, fmochila);			
+				fprintf(fmochila, "%s\n", r);			
 	}
 	    printf("TODO SE MUEVE, SE ESTA AGRIETANDO LA SUPERFICIE\n\n\n");
 	    printf("¡AUCH! ¡Que dano! Vaya golpe te has metido. Que clima mas raro, hace mucho calor...\n\n");
@@ -192,8 +191,6 @@ scanf("%d",&resp);
 	    printf("ES BUTRUL!!! Hay que luchar, no queda otra!\n");
 	    printf("Has llegado al final campeon, llega el momento que decidira tu futuro y el del resto de la poblacion\n");
 	    printf("Es el momento de enfrentarte a BUTRUL y acabar con todos los males que ha causado!\n\n");
-	printf("Recuerdame tu nombre anda, que quedara grabado en la historia: ");
-	scanf("%s", &nombre);
 	
 
 	while (acabado != 1){
@@ -231,7 +228,7 @@ scanf("%d",&resp);
 		//Turno rival
 		
 		printf("\n¿Que hara ahora Butrul?\n\n");
-		srand(time(NULL));
+		eleccion2 = rand() % 4 + 1;
 		if(eleccion2 == 1){
 			dano_hecho = wurtz;
 		printf("Butrul uso sintesis de wurtz!\n");
@@ -306,4 +303,5 @@ scanf("%d",&resp);
 	
 	return 0;
 }
+
 
