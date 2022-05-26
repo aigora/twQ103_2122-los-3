@@ -31,7 +31,7 @@ int wurtz = 45, cannizaro_oscuro = 70, claisen = 30, ozonolisis = 55;
 int vida_rival = 200, ataque;
 int turno = 1;
 	
-
+FILE * fentrada;
 int dano_hecho;
 int acabado = 0;	
 
@@ -238,6 +238,11 @@ scanf("%d",&resp);
 		}
 		vida_rival -= dano_hecho;
 		printf("Butrul tiene %d puntos de vida\n", vida_rival);
+		
+		if(vida_rival<=0){
+			acabado=1;
+			break;
+		}
 		//Turno rival
 		
 		printf("\n¿Que hara ahora Butrul?\n\n");
@@ -269,15 +274,23 @@ scanf("%d",&resp);
 		
 		if(vida_jug <= 0)
 		acabado = 1;
-		else if(vida_rival <= 0)
-		acabado = 1;
+	
 		
 		}
 	if (vida_rival && vida_jug <= 0)
 		printf("Doble KO");
 	else if(vida_rival <= 0){
-		printf("¡Felicidades! has derrotado a Butrul");
-		printf("Enhorabuena, has salvado el mundo de la voracidad del butrul, gracias a ti podremos vivir tranquilos %s\n Has completado esta aventura con un total de %d puntos y seras inscrito en el top de jugadores");
+		system("cls");
+		printf("¡Felicidades! has derrotado a Butrul\n.\n.\n.");
+		printf("Enhorabuena, has salvado el mundo de la voracidad del butrul, gracias a ti podremos vivir tranquilos %s\n Has completado esta aventura con un total de %d puntos y seras inscrito en el top de jugadores", jugador, puntos);
+		if(fentrada == NULL){
+		    printf("Error en la apertura del fichero\n");
+			return 0;
+		}else{
+			fentrada=fopen("top.txt","a");
+			fprintf(fentrada, "%s\t%d", jugador, puntos);
+			fclose(fentrada);
+			}
 	}
 	else if (vida_jug <= 0)
 		printf("Has sido vencido por Butrul, arderas en el infierno");
@@ -285,7 +298,6 @@ scanf("%d",&resp);
     if(resp==2){
     	inicio=0;
     	printf("Has accedido a las instrucciones\n");
-    	 FILE * fentrada;
 		 fentrada = fopen("instrucciones.txt", "r");
 		if(fentrada == NULL){
 		    printf("Error en la apertura del fichero\n");
@@ -301,8 +313,7 @@ scanf("%d",&resp);
 	if(resp==3){
 		inicio=0;
     	printf("Top jugadores\n");
-		 FILE * fentrada;
-		 fentrada = fopen("top.txt", "r");
+		fentrada = fopen("top.txt", "r");
 		if(fentrada == NULL){
 		    printf("Error en la apertura del fichero\n");
 			return 0;
@@ -318,5 +329,4 @@ scanf("%d",&resp);
 	
 	return 0;
 }
-
 
