@@ -18,7 +18,7 @@ struct Persona
 };
 
 int main(){
-banner();
+
 int sesion,respuesta, i=1, j=1, code, resp, luzverde=0, bomba=4, cable,ganar=1, luzroja=0, muerte=0, inicio, ebom, talk, puntos=50;
 char jugador[50], instrucciones, top;
 int vida_jug = 200;
@@ -33,6 +33,7 @@ FILE * fentrada;
 int dano_hecho;
 int acabado = 0;
 	
+banner();
 
 printf("Bienvenido es la primera vez que juegas?\n1.Iniciar sesion\n2.Registrarse\n3.Salir\n");
 scanf("%d",&sesion);
@@ -55,6 +56,7 @@ system("cls");
 
 
 while(inicio!=1){
+	banner();
 printf("Bienvendio a Butrul run ‚¿Que desea hacer?\n");
 printf("1 Modo Historia\n2.Como jugar\n3.Top jugadores\n");
 scanf("%d",&resp);
