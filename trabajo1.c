@@ -8,6 +8,7 @@ void banner();
 void datos();
 void registro();
 
+
 struct Persona
 {
 
@@ -17,7 +18,9 @@ struct Persona
     char contra[20];
 };
 
+
 int main(){
+
 
 int sesion,respuesta, i=1, j=1, code, resp, luzverde=0, bomba=4, cable,ganar=1, luzroja=0, muerte=0, inicio, ebom, talk, puntos=50;
 char jugador[50], instrucciones, top;
@@ -28,6 +31,7 @@ int dano_recibido;
 int wurtz = 45, cannizaro_oscuro = 70, claisen = 30, ozonolisis = 55;
 int vida_rival = 200, ataque;
 int turno = 1;
+
 	
 FILE * fentrada;
 int dano_hecho;
@@ -35,8 +39,10 @@ int acabado = 0;
 	
 banner();
 
+
 printf("Bienvenido es la primera vez que juegas?\n1.Iniciar sesion\n2.Registrarse\n3.Salir\n");
 scanf("%d",&sesion);
+
 
 if(sesion==1){        
    registro();
@@ -60,6 +66,7 @@ while(inicio!=1){
 printf("Bienvendio a Butrul run ��Que desea hacer?\n");
 printf("1 Modo Historia\n2.Como jugar\n3.Top jugadores\n");
 scanf("%d",&resp);
+
 
     if(resp==1){
     	inicio=1;
@@ -126,6 +133,7 @@ scanf("%d",&resp);
          	}   
 			printf("Leyendo...\n");
    			sleep(3);
+			
 			printf("'El sujeto del experimento da buena reaccion a la sintesis de Wurtz, parece que incrementa su fuerza a la par que sus cadenas carbonadas.'\n \tSeguir leyendo los apuntes (1)\n\tCerrar el libro (2)\n");
 			scanf("%d", &respuesta);
 			while(respuesta==2){
@@ -136,6 +144,8 @@ scanf("%d",&resp);
 			puntos += 10;
 			sleep(2);
 			system("cls");
+			
+			
 			printf("'...El sujeto se ve debil ante los compuestos clorados, ante la exposicion al clorobenceno se vuelve extremadamente agresivo y, posteriormente, recobrara su estado normal'\n.\n.\n\n");
 			printf("%s, esta sonando un pitido intermitente desde el fondo de la habitacion,  deberias acercarte a mirar.\n.\n.\n.\n", jugador);
 			printf("Acercandose...\n");
@@ -144,6 +154,7 @@ scanf("%d",&resp);
 			
 			printf("Has llegado a una puerta que tiene un artefacto extraño\nParecen 7 cables, hay que cortar los correctos.....\nNo parece que haya ningun acertijo\nHay 3 luces\n");
 //	cables correctos 3,6 y 7
+
            while(muerte!=1){
             	while(bomba!=1){
 	            	printf("Que cable cortas?\n");
@@ -216,6 +227,7 @@ scanf("%d",&resp);
 				fmochila = fopen("mochila.txt", "a");
 				fprintf(fmochila, "Rayos UV");			
 	}
+	
 	    printf("TODO SE MUEVE, SE ESTA AGRIETANDO LA SUPERFICIE\n\n\n");
 	    printf("¡AUCH! ¡Que dano! Vaya golpe te has metido. Que clima mas raro, hace mucho calor...\n\n");
 	    printf("-GRRRR- -GRRRR- -GRRRR-\n\n");
@@ -299,8 +311,10 @@ scanf("%d",&resp);
 		printf("Doble KO");
 	else if(vida_rival <= 0){
 		system("cls");
+		
 		printf("¡Felicidades! has derrotado a Butrul\n.\n.\n.");
 		printf("Enhorabuena, has salvado el mundo de la voracidad del butrul, gracias a ti podremos vivir tranquilos %s\n Has completado esta aventura con un total de %d puntos y seras inscrito en el top de jugadores\n", jugador, puntos);
+		
 		if(fentrada == NULL){
 		    printf("Error en la apertura del fichero\n");
 			return 0;
@@ -314,6 +328,7 @@ scanf("%d",&resp);
 		printf("Has sido vencido por Butrul, arderas en el infierno");
 		banner();
 }
+
     if(resp==2){
     	inicio=0;
     	printf("Has accedido a las instrucciones\n");
@@ -329,6 +344,7 @@ scanf("%d",&resp);
 		printf("\n\n\n");
 		
 	}
+	
 	if(resp==3){
 		inicio=0;
     	printf("Top jugadores\n");
@@ -350,6 +366,7 @@ scanf("%d",&resp);
 }
 
 
+
 void banner(){
 	                                                                                            
 printf("@@@@@@@   @@@  @@@  @@@@@@@  @@@@@@@   @@@  @@@  @@@          @@@@@@@   @@@  @@@  @@@  @@@\n" );
@@ -365,6 +382,7 @@ printf(":: : ::    : :  :      :      :   : :   : :  :   : :: : :      :   : :  
 printf("                                                                                         \n"  );
 printf(".\n.\n");                                                                                        
 }
+
 
 
 void registro(){
@@ -395,6 +413,7 @@ do{
     printf("Introduzca la contrasena\n");
     scanf("%s", persona.contra);
 }
+
 
 void datos(){
 	struct Persona persona;
