@@ -5,10 +5,21 @@
 
 
 void banner();
+void datos();
+void registro();
+
+struct Persona
+{
+
+    char nombre[50];
+    char apellido[50];
+    char mail[50];
+    char contra[20];
+};
 
 int main(){
 banner();
-int respuesta, i=1, j=1, code, resp, luzverde=0, bomba=4, cable,ganar=1, luzroja=0, muerte=0, inicio, ebom, talk, puntos=50;
+int sesion,respuesta, i=1, j=1, code, resp, luzverde=0, bomba=4, cable,ganar=1, luzroja=0, muerte=0, inicio, ebom, talk, puntos=50;
 char jugador[50], instrucciones, top;
 int vida_jug = 200;
 int bomba_clorobenceno=60, pedrada = 40, rayosUV= 80, cura;
@@ -20,13 +31,31 @@ int turno = 1;
 	
 FILE * fentrada;
 int dano_hecho;
-int acabado = 0;	
+int acabado = 0;
+	
+
+printf("Bienvenido es la primera vez que juegas?\n1.Iniciar sesion\n2.Registrarse\n3.Salir\n");
+scanf("%d",&sesion);
+
+if(sesion==1){        
+   registro();
+}else if(sesion==2){
+ datos();	
+ registro();
+}else{
+    printf("Vuelva pronto\n");
+    banner();
+    return 0;
+}
+printf("Loading...");
+sleep(2);
+system("cls");
 
 
 
 
 while(inicio!=1){
-printf("Bienvendio a Butrul run Ã‚Â¿que desea hacer?\n");
+printf("Bienvendio a Butrul run ‚¿Que desea hacer?\n");
 printf("1 Modo Historia\n2.Como jugar\n3.Top jugadores\n");
 scanf("%d",&resp);
 
@@ -269,7 +298,7 @@ scanf("%d",&resp);
 	else if(vida_rival <= 0){
 		system("cls");
 		printf("Â¡Felicidades! has derrotado a Butrul\n.\n.\n.");
-		printf("Enhorabuena, has salvado el mundo de la voracidad del butrul, gracias a ti podremos vivir tranquilos %s\n Has completado esta aventura con un total de %d puntos y seras inscrito en el top de jugadores", jugador, puntos);
+		printf("Enhorabuena, has salvado el mundo de la voracidad del butrul, gracias a ti podremos vivir tranquilos %s\n Has completado esta aventura con un total de %d puntos y seras inscrito en el top de jugadores\n", jugador, puntos);
 		if(fentrada == NULL){
 		    printf("Error en la apertura del fichero\n");
 			return 0;
@@ -281,6 +310,7 @@ scanf("%d",&resp);
 	}
 	else if (vida_jug <= 0)
 		printf("Has sido vencido por Butrul, arderas en el infierno");
+		banner();
 }
     if(resp==2){
     	inicio=0;
@@ -332,4 +362,47 @@ printf(":: ::::  ::::: ::     ::    ::   :::  ::::: ::   :: ::::     ::   :::  :
 printf(":: : ::    : :  :      :      :   : :   : :  :   : :: : :      :   : :   : :  :   ::    : \n");
 printf("                                                                                         \n"  );
 printf(".\n.\n");                                                                                        
+}
+
+
+void registro(){
+	struct Persona persona;
+	int i;
+int	arroba;
+int punto;
+do{
+	printf("Introduzca su mail\n");
+    fflush(stdin);
+    scanf("%s", persona.mail);
+    for (i = 0; i < 15; i++){
+        if (persona.mail[i] == '@'){
+            arroba = 1;
+        }            
+        if (persona.mail[i] == '.'){
+            punto = 1;
+        }           
+    }            
+        if (arroba == 1 && punto == 1){
+            printf("Correo valido\n");
+        }        
+        else{
+            printf("Correo invalido\n");
+        }        
+
+} while (arroba != 1 && punto != 1);
+    printf("Introduzca la contrasena\n");
+    scanf("%s", persona.contra);
+}
+
+void datos(){
+	struct Persona persona;
+	int i;
+	    printf("Datos de la persona\n");
+        printf("Introduzca el nombre\n");
+        fflush(stdin);
+        gets(persona.nombre);
+        printf("Introduzca apellido\n");
+        gets(persona.apellido);
+        fflush(stdin);
+
 }
