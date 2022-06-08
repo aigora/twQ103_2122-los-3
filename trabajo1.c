@@ -11,18 +11,24 @@ void registro();
 
 struct Persona
 {
-
     char nombre[50];
     char apellido[50];
     char mail[50];
     char contra[20];
 };
+typedef struct Persona persona;
 
+struct tiempo
+{
+    int fecha;
+    char dia[50];
+    char temporal[50];
+};
 
 int main(){
 
 
-int sesion,respuesta, i=1, j=1, code, resp, luzverde=0, bomba=4, cable,ganar=1, luzroja=0, muerte=0, inicio, ebom, talk, puntos=50;
+int numero_dias,sesion,respuesta, i=1, j=1, code, resp, luzverde=0, bomba=4, cable,ganar=1, luzroja=0, muerte=0, inicio, ebom, talk, puntos=50;
 char jugador[50], instrucciones, top;
 int vida_jug = 200;
 int bomba_clorobenceno=60, pedrada = 40, rayosUV= 80, cura;
@@ -31,6 +37,7 @@ int dano_recibido;
 int wurtz = 45, cannizaro_oscuro = 70, claisen = 30, ozonolisis = 55;
 int vida_rival = 200, ataque;
 int turno = 1;
+struct tiempo tiempo [numero_dias];
 
 	
 FILE * fentrada;
@@ -73,6 +80,25 @@ scanf("%d",&resp);
     	printf("Has accedido al modo historia\n\n\n");
     	printf("Hola heroe!! Bienvenido a Butrul Run\n\nComo te llamas?\n");
 	        scanf("%s", jugador);
+	printf("numero de dias: ");
+	scanf("%d", &numero_dias);
+	
+	for(i = 0; i < numero_dias; i++) {
+		printf("dia de la semana: ");
+		fflush(stdin);
+		gets(tiempo[i].dia);
+		printf("numero del dia: ");
+		scanf("%d", &tiempo[i].fecha);
+		printf("tiempo meteorologico: ");
+		fflush(stdin);
+		gets(tiempo[i].temporal);
+		printf("\n");
+	}
+	
+	for(i = 0; i < numero_dias; i++) {
+		printf("el dia %s %d se encuentra %s", tiempo[i].dia, tiempo[i].fecha, tiempo[i].temporal);
+		printf("\n");
+	}
 	        printf("\n%s, te encuentras en el escondite del BUTRUL y debes de investigar el lugar para encontrar las pistas oportunas para avanzar en la mision.\n", jugador);
          	printf("Se encuentran a la vista varios objetos para comprobar:\n");
         	while (i==1){
